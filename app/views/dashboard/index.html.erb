@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= form_for @user_comment do |f| %>
+            <%= f.hidden_field :system_ip, value: request.remote_ip %>
+            <div class="form-group">
+              <%= f.label "Add new comment:" %>
+              <%= f.text_area :description, class: "form-control", rows: 2, cols: 3 %>
+            </div>
+            <div class="form-action">
+              <%= f.submit "Post", class: "btn btn-default pull-right submit-comment-btn"%>
+            </div>
+          <% end %>
+          <div id="comment_list">
+            <%= render partial: "comments_lists", locals: {comments: @comments} %>
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="col-md-3">
+    </div>
+  </div>
+</div>
